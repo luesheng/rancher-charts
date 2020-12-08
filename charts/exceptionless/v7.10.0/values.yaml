@@ -1,0 +1,82 @@
+api:
+  replicaCount: 1
+  defaultDomain:
+  domains: []
+  image:
+    repository: exceptionless/api
+    tag: latest
+    pullPolicy: IfNotPresent
+
+collector:
+  replicaCount: 1
+  defaultDomain:
+  domains: []
+
+app:
+  replicaCount: 1
+  defaultDomain:
+  domains: []
+  image:
+    repository: exceptionless/ui
+    tag: latest
+    pullPolicy: IfNotPresent
+
+jobs:
+  image:
+    repository: exceptionless/job
+    tag: latest
+    pullPolicy: IfNotPresent
+  eventNotifications:
+    replicaCount: 1
+  eventPosts:
+    replicaCount: 1
+  eventUserDescriptions:
+    replicaCount: 1
+  mailMessage:
+    replicaCount: 1
+  webhooks:
+    replicaCount: 1
+  workitem:
+    replicaCount: 1
+
+statsd:
+  token:
+  user:
+
+config: {}
+#  key: value
+
+service:
+  type: ClusterIP
+
+elasticsearch:
+  connectionString: 
+  image:
+    repository: exceptionless/elasticsearch
+    tag: 98
+    pullPolicy: IfNotPresent
+
+redis:
+  connectionString: 
+  image:
+    repository: redis
+    tag: latest
+    pullPolicy: IfNotPresent
+
+storage:
+  connectionString: 
+
+cache:
+  connectionString: 
+
+metrics:
+  connectionString: 
+
+queue:
+  connectionString: 
+
+email:
+  connectionString: 
+
+messagebus:
+  connectionString: 
